@@ -1,0 +1,134 @@
+
+
+html {height: 100%; padding: 0px; margin: 0px;}
+#wrap {overflow: auto; padding-bottom: 153px;}
+body { font: 14px Arial; margin: 0px; background-image: url('../images/bodybg.png'); background-repeat: repeat-x; height:100%;}
+a, a:visited { color: #00f; }
+h1.fpo_text { color: #aaa; font-family: Times; font-size: 24px; }
+p.fpo_text { color: #aaa; font-family: Times; font-size: 16px; }
+
+#header {margin: 0 auto;  width: 100%; height:60px; text-align: center; background-image: url('../images/head_draftbg.png'); background-repeat: repeat-x; position: fixed; z-index: 1;}
+
+.homebtn {width:87px; height: 54px;background-color: transparent; display: inline-block; letter-spacing: 0; word-spacing: 0;}
+.lessonsbtn {width:115px; height: 54px;background-color: transparent; display: inline-block; letter-spacing: 0; word-spacing: 0; margin-bottom: -5px; margin-right: 0px;}
+.homeworkbtn {width:135px; height: 54px;background-color: transparent; display: inline-block; letter-spacing: 0; word-spacing: 0; margin-bottom: -5px; margin-right: 0px;}
+.forumbtn {width:95px; height: 54px; background-color: transparent; display: inline-block; letter-spacing: 0; word-spacing: 0;}
+
+.homebtn:hover {background-image: url('../images/homehover.png');}
+.lessonsbtn:hover  {background-image: url('../images/lessonshover.png'); margin-bottom: -5px; margin-right: 0px;}
+.homeworkbtn:hover  {background-image: url('../images/homeworkhover.png'); margin-bottom: -5px; margin-right: 0px;}
+.forumbtn:hover  {background-image: url('../images/forumhover.png'); }
+
+.page_content {z-index: 0; min-height:100$; height: 100$; padding-top: 100px; padding-bottom: 50px;}
+
+
+.page_content {z-index: 0; min-height:100$; height: 100$; padding-top: 100px; padding-bottom: 50px;}
+
+.sp h2 { font-size: 1.15em; margin: 0 0 .5em 0; }
+.sp p { font-size: 1em; margin: 0 0 1em 0; }
+
+/* layout */
+.sp { width: 900px; position: relative; margin: 0 auto;  }
+
+.sp .tabs { width: 1000px; margin: 0 auto; position: relative; display: none; }
+
+.sp .tabs span {
+	display: inline-block;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	padding: 9px 20px 9px 20px;
+	margin: 0px;
+	background-color: #fff;
+	cursor: pointer;
+	position: relative;
+}
+
+.sp .tabs span:first-child {
+
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	-webkit-border-top-left-radius: 12px;
+	-moz-border-radius-topleft: 12px;
+	border-top-left-radius: 12px;
+}
+
+.sp .tabs span:last-child {
+
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	-webkit-border-top-right-radius: 12px;
+	-moz-border-radius-topright: 12px;
+	border-top-right-radius: 12px;
+}
+
+.sp .tabs span.selected {
+	color: #999;
+	border-bottom: 1px solid #fff;
+}
+
+.sp .panel_container {
+	position: relative;
+	border: 1px solid #ccc;
+	background-color: #fff;
+	overflow: hidden;
+	margin-top: -1px;
+}
+
+.sp .panel_container .panel .panel_content { padding: 15px 15px 5px 15px; }
+
+.sp .tabs .ipad.selected { font-weight: bold; color: white; background-color: #0292d9; border-bottom: 1px solid #8dbc52; }
+.sp .panels .ipad { background: url("http://mypage.iu.edu/~hplagema/mooc/images/credentials.jpg") no-repeat 0px 0px; }
+.sp .panels .ipad h2 { color: #fff; }
+.sp .panels .ipad p { color: #284108; margin-right: 150px; }
+.sp .panels .ipad a { color: #fff; }
+
+.sp .tabs .video.selected { font-weight: bold; color: white; background-color: #0292d9; border-bottom: 1px solid #354e5c; }
+.sp .panels .video { background: url("http://mypage.iu.edu/~hplagema/mooc/images/learn_more.jpg") no-repeat 0px 0px; }
+.sp .panels .video .panel_content { margin-right: 125px; }
+.sp .panels .video .panel_content h2 { color: #000; }
+.sp .panels .video .panel_content p { color: #fff; }
+.sp .panels .video .panel_content a { color: #ffce6f; }
+
+.sp .tabs .photo.selected { font-weight: bold; color: #fff; background-color: #0292d9; border-bottom: 1px solid #000; }
+.sp .panels .photo { background: url("http://mypage.iu.edu/~hplagema/mooc/images/connecttothecloud2.jpg") no-repeat 0px 0px; }
+.sp .panels .photo .panel_content { margin-right: 150px; }
+.sp .panels .photo h2 { color: #fff; }
+.sp .panels .photo p { color: #fff; }
+.sp .panels .photo a { color: #ffcc00; }
+.sp .panels .thumbnail { border: 1px solid #fff; }
+
+
+
+#oscillating_articles {margin-top: -15px;}
+#oscillating_articles div {width: 856px; height: 250px; padding: 20px; border: 2px groove #ccc; margin-bottom: 20px;}
+
+#footer {
+	position: relative;
+	margin-top: -153px;
+	clear: both;
+	background-image: url(../images/footer.jpg) ;
+	height: 153px;
+	width: 100%;
+	text-align: center;
+	font-weight: bold;
+}
+
+#footer_table {
+margin: 0 auto;
+}
+
+
+#footer_table tr:first-child {
+color: solid black;
+}
+
+#footer_table tr:not(:first-child) {
+color:#fff;
+} 
+
+#footer_table td{
+text-align: left;
+padding-left: 30px;
+padding-right: 30px;
+}
+

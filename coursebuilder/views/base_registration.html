@@ -93,19 +93,19 @@
 					</span>
 				{% endif %}
 				{% if logoutUrl %}
-					<div class="pull-right" style="font-size: larger;">
+					
 						{{ email }}
 						&nbsp;|&nbsp;
 							<a href="{{ logoutUrl }}" style="text-decoration: none;">
 								{% trans %} <img src="http://gozips.uakron.edu/~heb10/Button_Logout.gif"> {% endtrans %}
 							</a>
-					</div>
+				
 						{% elif loginUrl %}
-						<div class="pull-right" style="font-size: larger;">
+						
 							<a href="{{ loginUrl }}">{% trans %} Login {% endtrans %}</a>
 
 						{% endif %}
-						</div>
+						
 			</li>
 
         </ul>

@@ -3,7 +3,7 @@
 <!-- base.html -->
 <html class="google" lang="{{course_info.course.locale}}">
   <head>
-	<link rel="stylesheet" href="dropMenu.css">
+
     <base href="{{ gcb_course_base }}" />
     <script>
       (function(H) {
@@ -72,9 +72,10 @@
 	
 	
 
-{% block navbar %}
-<!-- nav bar -->
+    {% block navbar %}
+    <!-- nav bar -->
 
+      <div class="gcb-aux"> 
         <ul id="nav">
 		<div id="menudrop">
           {{course_info.base.after_navbar_begins}}
@@ -165,26 +166,24 @@
 					</span>
 				{% endif %}
 				{% if logoutUrl %}
-					<div class="pull-right" style="font-size: larger;">
+					
 						{{ email }}
 						&nbsp;|&nbsp;
 							<a href="{{ logoutUrl }}" style="text-decoration: none;">
 								{% trans %} <img src="http://gozips.uakron.edu/~heb10/Button_Logout.gif"> {% endtrans %}
 							</a>
-					</div>
+					
 						{% elif loginUrl %}
-						<div class="pull-right" style="font-size: larger;">
+						
 							<a href="{{ loginUrl }}">{% trans %} Login {% endtrans %}</a>
-
+						
 						{% endif %}
-						</div>
 			</li>
-
+	
         </ul>
 
 	<div class="clear"> </div>
-
-{% endblock %}
+    {% endblock %}
 
 	
 	

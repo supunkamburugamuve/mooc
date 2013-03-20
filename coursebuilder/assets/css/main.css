@@ -837,9 +837,9 @@ h1.product-headers {
 
 
 
+#wrap {overflow: auto; padding-bottom: 153px;}
 
-
-
+#header {margin: 0 auto;  width: 100%; height:60px; text-align: center; background-image: url('../images/head_draftbg.png'); background-repeat: repeat-x; position: fixed; z-index: 1;}
 
 
 .nav {

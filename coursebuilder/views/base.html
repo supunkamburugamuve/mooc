@@ -66,49 +66,15 @@
 
     {{course_info.base.after_body_tag_begins}}
 
-    <!-- logo bar -->
-    <div class="gcb-header" id="gcb-header">
-      <div class="gcb-aux">
-        <h1>
-          <a href="{{course_info.institution.url}}">
-            <img src="{{course_info.institution.logo.url}}"
-                 alt="{{course_info.institution.logo.alt_text}}">
-          </a>
-        </h1>
-        <h2>
-          <a href="/">{{course_info.base.nav_header}}</a>
-        </h2>
-        {% if course_info.base.show_gplus_button %}
-          <span class="plusone-button" id="plusone-3" style="height: 15px; width: 70px; display: inline-block; text-indent: 0px; margin: 0px; padding: 0px; background-color: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; background-position: initial initial; background-repeat: initial initial; ">
-            <g:plusone size="medium"></g:plusone>
-          </span>
-        {% endif %}
-
-        {% if logoutUrl %}
-        <div class="pull-right" style="font-size: larger;">
-          {{ email }}
-          &nbsp;|&nbsp;
-          <a href="{{ logoutUrl }}" style="text-decoration: underline;">
-            {% trans %} Logout {% endtrans %}
-          </a>
-        </div>
-        {% elif loginUrl %}
-        <div class="pull-right" style="font-size: larger;">
-          <a href="{{ loginUrl }}">{% trans %} <img src="http://www.pointsphone.com/images/Login_Button.png"> {% endtrans %}</a>
-        </div>
-        {% endif %}
-      </div>
-    </div>
-	
+    
 	
 	
 	
 	
 
-    {% block navbar %}
-    <!-- nav bar -->
-   <div class="gcb-nav gcb-complex" id="gcb-nav-x"> 
-      <div class="gcb-aux"> 
+{% block navbar %}
+<!-- nav bar -->
+
         <ul id="nav">
 		<div id="menudrop">
           {{course_info.base.after_navbar_begins}}
@@ -209,14 +175,16 @@
 						{% elif loginUrl %}
 						<div class="pull-right" style="font-size: larger;">
 							<a href="{{ loginUrl }}">{% trans %} Login {% endtrans %}</a>
-						</div>
+
 						{% endif %}
+						</div>
 			</li>
-		  </div>
+
         </ul>
 
 	<div class="clear"> </div>
-    {% endblock %}
+
+{% endblock %}
 
 	
 	

@@ -74,70 +74,55 @@
 
     {% block navbar %}
     <!-- nav bar -->
+	<!--
+			<ul id="nav">
+				<div id="menudrop">
 
-      <div class="gcb-aux"> 
+				<li>
+					<a href="lessons.html#"> dfhsdkjahfkdsfjh</div></a>
+					<ul class="dropitems">
+						<li><a href="playlist.html#">Customize</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#"> dkjfhdskjhf</div></a>
+					<ul class="dropitems">
+						<li><a href="lesson.html#">Infrastructure</a></li><br>
+						<li><a href="#">Platform</a></li><br>
+						<li><a href="#">Software</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#"> <div class="forumbtn"></div></a>
+				</li>
+				</div>
+				</ul>
+			<div class="clear"> </div>	
+		</div>
+	
+	-->
+	
+	
+	
+	
+	
+
+
         <ul id="nav">
 		<div id="menudrop">
           {{course_info.base.after_navbar_begins}}
-          <li {% if navbar.preview %}class='active'{% endif %}>
-            <a href="preview">
-              {% trans %} <img src="http://mypage.iu.edu/~hplagema/mooc/images/home.png"> {% endtrans %}
-            </a>
-          </li>
-          <li {% if navbar.course %}class='active'{% endif %}>
-            <a href="course">
-              {% trans %} Course {% endtrans %}
-            </a>
-          </li>
+          <li><a href="preview"><img src="http://mypage.iu.edu/~hplagema/mooc/images/home.png"></a></li>
           {% if course_info.course.forum_embed_url %}
-          <li {% if navbar.forum %}class='active'{% endif %}>
-            <a href="forum">
-              {% trans %} <img src="http://mypage.iu.edu/~hplagema/mooc/images/forum.png"> {% endtrans %}
-            </a>
+          <li><a href="forum"><img src="http://mypage.iu.edu/~hplagema/mooc/images/forum.png"></a>
           </li>
           {% endif %}
-		  
-		  <li {% if navbar.unit %}class='active'{% endif %}>
-            <a href="unit?unit=2">
-              {% trans %} <img src="http://mypage.iu.edu/~hplagema/mooc/images/lessons.png"> {% endtrans %}
-            </a>
-
-				<ul id="dropitems>
-					<li {% if navbar.unit %}class='active'{% endif %}>
-						<a href="unit?unit=2"> 
-							{% trans %} FIRST LI ITEM DOESNT SHOW UP FOR SOME REASON FIGURE OUT WHY {% endtrans %}
-						</a>
-					</li>
-					<li {% if navbar.unit %}class='active'{% endif %}>
-						<a href="unit?unit=1">
-							{% trans %} Unit 1 {% endtrans %}
-						</a>
-					</li>
-					<li {% if navbar.unit %}class='active'{% endif %}>
-						<a href="unit?unit=2">
-							{% trans %} Unit 2 {% endtrans %}
-						</a>
-					</li>
-					<li {% if navbar.unit %}class='active'{% endif %}>
-						<a href="unit?unit=3">
-							{% trans %} Unit 3 {% endtrans %}
-						</a>
-					</li>
-					<li {% if navbar.unit %}class='active'{% endif %}>
-						<a href="unit?unit=4">
-							{% trans %} Unit 4 {% endtrans %}
-						</a>
-					</li>
-					<li {% if navbar.unit %}class='active'{% endif %}>
-						<a href="unit?unit=5">
-							{% trans %} Unit 5 {% endtrans %}
-						</a>
-					</li>
-					<li {% if navbar.unit %}class='active'{% endif %}>
-						<a href="unit?unit=6">
-							{% trans %} Unit 6 {% endtrans %}
-						</a>
-					</li>
+		  <li> <a href="unit?unit=1"> <img src="http://mypage.iu.edu/~hplagema/mooc/images/lessons.png"> </a>
+				<ul class="dropitems">
+					<li><a href="unit?unit=1"> Unit 1 </a></li><br />
+					<li><a href="unit?unit=1"> Unit 1 </a></li><br />
+					<li><a href="unit?unit=1"> Unit 1 </a></li><br />
+					<li><a href="unit?unit=1"> Unit 1 </a></li><br />
+					<li><a href="unit?unit=1"> Unit 1 </a></li>
 				</ul>
 			</li>
           <li {% if navbar.myprofile %}class='active'{% endif %}>

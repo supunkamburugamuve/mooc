@@ -29,14 +29,13 @@ course:
   admin_user_emails: ''
 
   # Course title
-  title: 'Cloud Computing'
+
 
   # Main page blurb. (The '|' at the beginning enables multi-line input.)
   blurb: |
     
 
   # Information about the instructor to display on the main page.
-  instructor_details: 'Judy Qiu <br> Associate Professor <br> Indiana University, Bloomington'
 
   # You can choose whether you want a video or an image on the main page.
   # If you specify both a video and an image link, then the video will take
@@ -45,7 +44,7 @@ course:
   main_video:
   
   main_image:
-    url: 
+
     alt_text: 
 
   # Course start date.

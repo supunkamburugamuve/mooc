@@ -142,7 +142,7 @@ th, td {
 
 #gcb-main, .gcb-aux {
   margin: auto;
-  max-width: 978px;
+  max-width: 900px;
 }
 
 #gcb-main {
@@ -245,7 +245,7 @@ th, td {
 }
 /* controls padding and margin of main box */
 .gcb-aside {
-  border: 1px solid;
+
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
@@ -264,8 +264,7 @@ th, td {
 }
 
 .gcb-aside {
-  background: #f9f9f9;
-  border-color: #f2f2f2;
+
 }
 
 #gcb-signature {
@@ -583,6 +582,43 @@ a.gcb-button-action {
   height: 0px;
 }
 
+/**
+
+MARK
+MARK
+MARK
+MARK
+MARK
+MARK
+MARK
+MARK
+MARK
+MARK
+MARK
+MARK
+MARK
+MARK
+MARK
+MARK
+MARK
+MARK
+MARK
+MARK
+MARK
+MARK
+MARK
+MARK
+MARK
+MARK
+MARK
+MARK
+MARK
+MARK
+
+
+
+*/
+
 .next-button {
   padding: 8px 12px;
   font-size: 20px;
@@ -835,9 +871,9 @@ h1.product-headers {
 
 
 
+/* controls padding from menu bar to top image */
 
-
-#wrap {overflow: auto; padding-bottom: 153px;}
+#wrap {overflow: auto; padding-bottom: 40px;}
 
 #header {margin: 0 auto;  width: 100%; height:60px; text-align: center; background-image: url('../images/head_draftbg.png'); background-repeat: repeat-x; position: fixed; z-index: 1;}
 
@@ -857,10 +893,12 @@ right: 0;
 padding-left: 110px; 
 background-image: url("http://mypage.iu.edu/~hplagema/mooc/images/head_draftbg.png");
 background-repeat: repeat-x;
+vertical-align: text-top;
 }
 
 .clear {
 	clear:both;
+	vertical-align: text-top;
 }
 
 
@@ -869,6 +907,7 @@ ul {
 	padding: 0;
 	margin: 0;
 	font-size: 0;
+	vertical-align: text-top;
 }
 
 ul#nav li{
@@ -879,6 +918,7 @@ ul#nav li{
 	letter-spacing: 0;
 	word-spacing: 0;
 	margin:0;
+	vertical-align: text-top;
 }
 
 ul#nav li a {
@@ -886,6 +926,7 @@ ul#nav li a {
 	color: 000;
 	text-decoration: none;
 	/*border-bottom:2px solid #ccc; **/
+	vertical-align: text-top;
 }
 
 .dropitems {background-color: #0084de; padding-bottom: 10px; }
@@ -898,16 +939,112 @@ ul#nav li a {
 ul#nav li a:hover {
 	background:transparent;
 	margin: 0;
+	vertical-align: text-top;
 }
 
 ul#nav li ul li{
 	float:none;
+	vertical-align: text-top;
 }
 
 ul#nav li ul {
 	display:none;
+	vertical-align: text-top;
 }
 
 ul#nav li:hover ul{
 	display:block;
+	vertical-align: text-top;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Set the size and font of the tab widget */
+.tabGroup {
+	padding-bottom: 50px;
+    font: 12pt arial, verdana;
+    width: 900px;
+    height: 500px;
+	margin: 0 auto;
+}
+ 
+/* Configure the radio buttons to hide off screen */
+.tabGroup > input[type="radio"] {
+    position: absolute;
+    left:-100px;
+    top:-100px;
+	margin: 0 auto;
+}
+ 
+/* Configure labels to look like tabs */
+.tabGroup > input[type="radio"] + label {
+    /* inline-block such that the label can be given dimensions */
+    display: inline-block;
+ 
+    /* A nice curved border around the tab */
+
+
+     
+    /* the bottom border is handled by the tab content div */
+    border-bottom: 0;
+ 
+    /* Padding around tab text */
+    padding: 5px 10px;
+ 
+    /* Set the background color to default gray (non-selected tab) */
+    background-color:#298ccf;
+	margin: 0 auto;
+}
+ 
+/* Focused tabs need to be highlighted as such */
+.tabGroup > input[type="radio"]:focus + label {
+
+	margin: 0 auto;
+}
+ 
+/* Checked tabs must be white with the bottom border removed */
+.tabGroup > input[type="radio"]:checked + label {
+    background-color:white;
+    font-weight: bold;
+    border-bottom: 1px solid white;
+    margin-bottom: -1px;
+	margin: 0 auto;
+}
+ 
+/* The tab content must fill the widgets size and have a nice border */
+.tabGroup > div {
+    display: none;
+ 
+    background-color: white;
+   /* padding: 10px 10px; */
+    height: 100%;
+    overflow: hidden;
+     
+    box-shadow: 0 0 20px #444;
+    -moz-box-shadow: 0 0 20px #444;
+    -webkit-box-shadow: 0 0 20px #444;
+     
+    border-radius: 0 5px 5px 5px;
+    -moz-border-radius: 0 5px 5px 5px;
+    -webkit-border-radius: 0 5px 5px 5px;
+	margin: 0 auto;
+}
+ 
+/* This matchs tabs displaying to thier associated radio inputs */
+.tab1:checked ~ .tab1, .tab2:checked ~ .tab2, .tab3:checked ~ .tab3 {
+    display: block;
+	margin: 0 auto;
+}
+
+

@@ -3,7 +3,8 @@
 <!-- base.html -->
 <html class="google" lang="{{course_info.course.locale}}">
   <head>
-
+	<script type="text/javascript" src="assets/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="assets/main.js"></script>
     <base href="{{ gcb_course_base }}" />
     <script>
       (function(H) {
@@ -19,6 +20,10 @@
       {% endblock subtitle %}
     </title>
 
+
+	
+	
+	
     <link rel="icon" href="assets/img/favicon.ico" />
 
     <link href="assets/css/main.css" rel="stylesheet" type="text/css">
@@ -65,7 +70,6 @@
   
 
     {{course_info.base.after_body_tag_begins}}
-
     
 	
 	
@@ -115,7 +119,7 @@
 				<ul id="nav">
 				<div id="menudrop">
 				  {{course_info.base.after_navbar_begins}}
-				  <li><a href="preview"><img src="http://mypage.iu.edu/~hplagema/mooc/images/home.png"></a></li>
+				  <li><a href="course"><img src="http://mypage.iu.edu/~hplagema/mooc/images/home.png"></a></li>
 				  {% if course_info.course.forum_embed_url %}
 				  <li><a href="forum"><img src="http://mypage.iu.edu/~hplagema/mooc/images/forum.png"></a>
 				  </li>
@@ -123,10 +127,11 @@
 				  <li> <a href="unit?unit=1"> <img src="http://mypage.iu.edu/~hplagema/mooc/images/lessons.png"> </a>
 						<ul class="dropitems">
 							<li><a href="unit?unit=1"> Unit 1 </a></li><br />
-							<li><a href="unit?unit=1"> Unit 1 </a></li><br />
-							<li><a href="unit?unit=1"> Unit 1 </a></li><br />
-							<li><a href="unit?unit=1"> Unit 1 </a></li><br />
-							<li><a href="unit?unit=1"> Unit 1 </a></li>
+							<li><a href="unit?unit=2"> Unit 2 </a></li><br />
+							<li><a href="unit?unit=3"> Unit 3 </a></li><br />
+							<li><a href="unit?unit=4"> Unit 4 </a></li><br />
+							<li><a href="unit?unit=5"> Unit 5 </a></li><br />
+							<li><a href="unit?unit=5"> Unit 6 </a></li>
 						</ul>
 					</li>
 				  <li {% if navbar.myprofile %}class='active'{% endif %}>
@@ -174,6 +179,9 @@
 	<div class="clear"> </div>
 	</div>
 	</div>
+	</div>
+	<div style="margin-top: 60px;">
+	
 	</div>
     {% endblock %}
 

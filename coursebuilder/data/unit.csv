@@ -7,7 +7,5 @@ id,type,unit_id,title,release_date,now_available
 6,U,4,How to Access Data (High Level Language),available July 17,True
 7,U,5,How Programs Run (PaaS),available July 18,True
 8,U,6,How to Solve Problems (Data Mining Algorithms),available July 19,True
-9,A,Fin,Post-course assessment,,True
-10,O,http://www.youtube.com/watch?v=ZhhiXxiAVtM&feature=player_embedded,Power Searching with Search Experts Video,,True
-11,O,http://www.youtube.com/watch?v=dwlpViuIYgU&feature=player_embedded,Hang Out with Search Experts Video,,True
+
 

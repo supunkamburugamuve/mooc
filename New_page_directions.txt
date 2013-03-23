@@ -1,0 +1,39 @@
+To add a new page you put the .html file in the views directory.
+You also need to write a page handler, to be placed somewhere in
+the controllers directory (more on this later).
+
+Then you open main.py and add your new url to the urls dictionary.
+
+For example:
+urls = [
+    ('/', utils.MainHandler),
+    ('/page_one', utils.OneHandler),
+    ('/page_two', utils.TwoHandler)]
+
+becomes
+
+urls = [
+    ('/', utils.MainHandler),
+    ('/page_one', utils.OneHandler),
+    ('/page_two', utils.TwoHandler),
+    ('/page_three', utils.ThreeHandler)]
+
+if you want to add a new page called page_three that uses a handler
+in the file utils.py called ThreeHandler.
+
+A handler is a class that requires at least one function (the get function).
+They look like this...
+
+class MyHandler(BaseHandler):
+      def get(self):
+      	  #rest of the code...
+
+This example extends BaseHandler. It looks like most, if not all, of our new handlers
+should also extend BaseHandler. I added a really simple handler called MostBasicHandler
+to utils.py at line 226 and a simple html page as well called new_page.html
+To do more complex things with the handlers, looking at existing handlers would 
+be a good start.
+      	  
+            
+    
+    

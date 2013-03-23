@@ -31,6 +31,8 @@ import webapp2
 from google.appengine.api import users
 
 
+
+
 # The name of the template dict key that stores a course's base location.
 COURSE_BASE_KEY = 'gcb_course_base'
 
@@ -221,6 +223,21 @@ class BaseHandler(ApplicationHandler):
         self.response.out.write(template.render(self.template_value))
 
 
+class MostBasicHandler(BaseHandler):
+    """Handles the new test page"""
+    
+    def get(self):
+        """Handles GET requests.
+        Every Handler needs at least a get function"""
+        
+        user = users.get_current_user() 
+        """Gets the user information, if the user is logged in.
+        It is not used in this handler, but it is needed if you want
+        to prevent unregistered users to have access to the page"""
+        
+        self.render('new_page.html')
+        """renders the html file that you want to use"""
+
 class BaseRESTHandler(BaseHandler):
     """Base REST handler."""
 
@@ -234,6 +251,10 @@ class BaseRESTHandler(BaseHandler):
                 args_dict)
             return False
         return True
+
+
+
+
 
 
 class PreviewHandler(BaseHandler):

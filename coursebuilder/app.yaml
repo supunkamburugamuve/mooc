@@ -27,4 +27,3 @@ handlers:
   secure: always
 - url: /.*
   script: main.app
-

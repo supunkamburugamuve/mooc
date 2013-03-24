@@ -3,220 +3,182 @@
 <!-- base.html -->
 <html class="google" lang="{{course_info.course.locale}}">
   <head>
-	<script type="text/javascript" src="assets/jquery-1.7.2.min.js"></script>
-		<script type="text/javascript" src="assets/main.js"></script>
+    <link type="text/css" rel="stylesheet" href="assets/css/sliding_panels.css" />
+    <script type="text/javascript" src="assets/js/jquery-1.7.2.min.js"></script>
+    
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+    
     <base href="{{ gcb_course_base }}" />
+
     <script>
       (function(H) {
-        H.className = H.className.replace(/\bgoogle\b/,'google-js');
+      H.className = H.className.replace(/\bgoogle\b/,'google-js');
       })(document.documentElement)
     </script>
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <title>
       {{course_info.course.title}} -
       {% block subtitle %}
-        {% trans %} Course {% endtrans %}
+      {% trans %} Course {% endtrans %}
       {% endblock subtitle %}
     </title>
 
-
-	
-	
-	
     <link rel="icon" href="assets/img/favicon.ico" />
-
     <link href="assets/css/main.css" rel="stylesheet" type="text/css">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
-
     <!-- jQuery should be imported first -->
-    <script src="assets/lib/jquery-1.7.2.min.js"></script>
-
     <!-- The following translated strings are used in activity-generic.js and should be
-    declared before that file is imported. -->
+	 declared before that file is imported. -->
     <script>
       // import JSON for older browsers like IE 7
       if (typeof JSON == 'undefined') {
-        document.write(
-            '<script src="assets/lib/json2-2012.10.08.min.js"></' + 'script>');
-      }
+      document.write(
+      '<script src="assets/lib/json2-2012.10.08.min.js"></' + 'script>');
+}
 
-      // inline translations
-      var trans = {};
-      trans.CHECK_ANSWER_TEXT = '{% trans %} Check Answer {% endtrans %}';
-      trans.CHECK_ANSWERS_TEXT = '{% trans %} Check Answers {% endtrans %}';
-      trans.SHOW_ANSWER_TEXT = '{% trans %} Skip and Show Answer {% endtrans %}';
-      trans.SAVE_ANSWERS_TEXT = '{% trans %} Save Answers {% endtrans %}';
-      trans.SELECT_ANSWER_PROMPT = '{% trans %} Please click one of the buttons for your answer. {% endtrans %}';
-      trans.ALL_CORRECT_TEXT = '{% trans %} All your answers are correct! {% endtrans %}';
-      trans.NUM_CORRECT_TEXT = '{% trans %} Number of questions you answered correctly {% endtrans %}';
-      trans.YOUR_SCORE_TEXT = '{% trans %} You received a score on this assessment of {% endtrans %}';
-      trans.LESSONS_TO_REVIEW_TEXT = '{% trans %} Here are lessons you could review to improve your score {% endtrans %}';
-      trans.PERFECT_SCORE_SAVE_TEXT =
-          '{% trans %} Congratulations! Press the \'Save Answers\' button to submit your grade. {% endtrans %}';
-      trans.GENERIC_SAVE_TEXT =
-          '{% trans %} Press the \'Save Answers\' button below to save your scores. You can also edit your answers above before clicking \'Save Answers\'. {% endtrans %}';
-    </script>
-    <script src="assets/lib/activity-generic-1.2.js"></script>
+// inline translations
+var trans = {};
+trans.CHECK_ANSWER_TEXT = '{% trans %} Check Answer {% endtrans %}';
+trans.CHECK_ANSWERS_TEXT = '{% trans %} Check Answers {% endtrans %}';
+trans.SHOW_ANSWER_TEXT = '{% trans %} Skip and Show Answer {% endtrans %}';
+trans.SAVE_ANSWERS_TEXT = '{% trans %} Save Answers {% endtrans %}';
+trans.SELECT_ANSWER_PROMPT = '{% trans %} Please click one of the buttons for your answer. {% endtrans %}';
+trans.ALL_CORRECT_TEXT = '{% trans %} All your answers are correct! {% endtrans %}';
+trans.NUM_CORRECT_TEXT = '{% trans %} Number of questions you answered correctly {% endtrans %}';
+trans.YOUR_SCORE_TEXT = '{% trans %} You received a score on this assessment of {% endtrans %}';
+trans.LESSONS_TO_REVIEW_TEXT = '{% trans %} Here are lessons you could review to improve your score {% endtrans %}';
+trans.PERFECT_SCORE_SAVE_TEXT =
+'{% trans %} Congratulations! Press the \'Save Answers\' button to submit your grade. {% endtrans %}';
+trans.GENERIC_SAVE_TEXT =
+'{% trans %} Press the \'Save Answers\' button below to save your scores. You can also edit your answers above before clicking \'Save Answers\'. {% endtrans %}';
+</script>
 
-    {% if course_info.base.show_gplus_button %}
-      <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-    {% endif %}
+{% if course_info.base.show_gplus_button %}
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+{% endif %}
+<script src="assets/lib/activity-generic-1.2.js"></script>
 
-    {{course_info.base.before_head_tag_ends}}
-  </head>
+{{course_info.base.before_head_tag_ends}}
+</head>
 
-  <body>
+<body>
   
 
-    {{course_info.base.after_body_tag_begins}}
-    
-	
-	
-	
-	
+  {#{course_info.base.after_body_tag_begins}#} 
+  
+  {% block navbar %}
 
-    {% block navbar %}
-    <!-- nav bar -->
-	<!--
-			<ul id="nav">
-				<div id="menudrop">
-
-				<li>
-					<a href="lessons.html#"> dfhsdkjahfkdsfjh</div></a>
-					<ul class="dropitems">
-						<li><a href="playlist.html#">Customize</a></li>
-					</ul>
-				</li>
-				<li>
-					<a href="#"> dkjfhdskjhf</div></a>
-					<ul class="dropitems">
-						<li><a href="lesson.html#">Infrastructure</a></li><br>
-						<li><a href="#">Platform</a></li><br>
-						<li><a href="#">Software</a></li>
-					</ul>
-				</li>
-				<li>
-					<a href="#"> <div class="forumbtn"></div></a>
-				</li>
-				</div>
-				</ul>
-			<div class="clear"> </div>	
-		</div>
-	
-	-->
-	
-	
-	
-	
-	
-	<div id="wrap">
-
-		<div id="header">
-
-			<div id="dropwrapcenter">
-
-				<ul id="nav">
-				<div id="menudrop">
-				  {{course_info.base.after_navbar_begins}}
-				  <li><a href="course"><img src="http://mypage.iu.edu/~hplagema/mooc/images/home.png"></a></li>
-				  {% if course_info.course.forum_embed_url %}
-				  <li><a href="forum"><img src="http://mypage.iu.edu/~hplagema/mooc/images/forum.png"></a>
-				  </li>
-				  {% endif %}
-				  <li> <a href="unit?unit=1"> <img src="http://mypage.iu.edu/~hplagema/mooc/images/lessons.png"> </a>
-						<ul class="dropitems">
-							<li><a href="unit?unit=1"> Unit 1 </a></li><br />
-							<li><a href="unit?unit=2"> Unit 2 </a></li><br />
-							<li><a href="unit?unit=3"> Unit 3 </a></li><br />
-							<li><a href="unit?unit=4"> Unit 4 </a></li><br />
-							<li><a href="unit?unit=5"> Unit 5 </a></li><br />
-							<li><a href="unit?unit=5"> Unit 6 </a></li>
-						</ul>
-					</li>
-				  <li {% if navbar.myprofile %}class='active'{% endif %}>
-					<a href="student/home">
-					  {% trans %} My Profile {% endtrans %}
-					</a>
-				  </li>
-				  {{course_info.base.before_navbar_ends}}
-				  {% if is_super_admin %}
-				  <li class="pull-right">
-					<a href="/admin">Admin</a>
-				  </li>
-				  {% endif %}
-				  {% if is_course_admin %}
-				  <li class="pull-right">
-					<a href="dashboard">Dashboard</a>
-				  </li>
-				  {% endif %}
-				  <li>
-					<h2>
-						<a href="/">{{course_info.base.nav_header}}</a>
-					</h2>
-						{% if course_info.base.show_gplus_button %}
-							<span class="plusone-button" id="plusone-3" style="height: 15px; width: 70px; display: inline-block; text-indent: 0px; margin: 0px; padding: 0px; background-color: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; background-position: initial initial; background-repeat: initial initial; ">
-								<g:plusone size="medium"></g:plusone>
-							</span>
-						{% endif %}
-						{% if logoutUrl %}
-							
-								{{ email }}
-								&nbsp;|&nbsp;
-									<a href="{{ logoutUrl }}" style="text-decoration: none;">
-										{% trans %} <img src="http://gozips.uakron.edu/~heb10/Button_Logout.gif"> {% endtrans %}
-									</a>
-							
-								{% elif loginUrl %}
-								
-									<a href="{{ loginUrl }}">{% trans %} Login {% endtrans %}</a>
-								
-								{% endif %}
-					</li>
-	
+  <div id="wrap">
+    <div id="header">
+      <div id="dropwrapcenter">
+	<ul id="nav">
+	  <div id="menudrop">
+	    {{course_info.base.after_navbar_begins}}
+	    <li><a href="course"><img src="http://mypage.iu.edu/~hplagema/mooc/images/home.png"></a></li>
+	    {% if course_info.course.forum_embed_url %}
+	    <li><a href="forum"><img src="http://mypage.iu.edu/~hplagema/mooc/images/forum.png"></a>
+	    </li>
+	    {% endif %}
+	    <li> <a href="unit?unit=1"> <img src="http://mypage.iu.edu/~hplagema/mooc/images/lessons.png"> </a>
+	      <ul class="dropitems">
+		<li><a href="unit?unit=1"> Unit 1 </a></li><br />
+		<li><a href="unit?unit=2"> Unit 2 </a></li><br />
+		<li><a href="unit?unit=3"> Unit 3 </a></li><br />
+		<li><a href="unit?unit=4"> Unit 4 </a></li><br />
+		<li><a href="unit?unit=5"> Unit 5 </a></li><br />
+		<li><a href="unit?unit=5"> Unit 6 </a></li>
+	      </ul>
+	    </li>
+	    <li {% if navbar.myprofile %}class='active'{% endif %}>
+	      <a href="student/home">
+		{% trans %} My Profile {% endtrans %}
+	      </a>
+	    </li>
+	    {{course_info.base.before_navbar_ends}}
+	    {% if is_super_admin %}
+	    <li class="pull-right">
+	      <a href="/admin">Admin</a>
+	    </li>
+	    {% endif %}
+	    {% if is_course_admin %}
+	    <li class="pull-right">
+	      <a href="dashboard">Dashboard</a>
+	    </li>
+	    {% endif %}
+	    <li>
+	      <h2>
+		<a href="/">{{course_info.base.nav_header}}</a>
+	      </h2>
+	      {% if course_info.base.show_gplus_button %}
+	      <span class="plusone-button" id="plusone-3" style="height: 15px; width: 70px; display: inline-block; text-indent: 0px; margin: 0px; padding: 0px; background-color: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; background-position: initial initial; background-repeat: initial initial; ">
+		<g:plusone size="medium"></g:plusone>
+	      </span>
+	      {% endif %}
+	      {% if logoutUrl %}
+	      
+	      {{ email }}
+	      &nbsp;|&nbsp;
+	      <a href="{{ logoutUrl }}" style="text-decoration: none;">
+		{% trans %} <img src="http://gozips.uakron.edu/~heb10/Button_Logout.gif"> {% endtrans %}
+	      </a>
+	      
+	      {% elif loginUrl %}
+	      
+	      <a href="{{ loginUrl }}">{% trans %} Login {% endtrans %}</a>
+	      
+	      {% endif %}
+	    </li>
+	    
         </ul>
-
+	
 	<div class="clear"> </div>
 	</div>
-	</div>
-	</div>
-	<div style="margin-top: 60px;">
-	
-	</div>
+      </div>
+    </div>
+    <div style="margin-top: 60px;">
+      
+    </div>
     {% endblock %}
-
-	
-	
-	
+    
+    
+    
+    
+    
     <!-- top section -->
     <div class="is-wrapper">
       <div class="gcb-aux">
-	  
-	  
-	  <!--
-	  THIS PART MAY BE DELETABLE
-	  THIS PART MAY BE DELETABLE
-	  THIS PART MAY BE DELETABLE
-	  THIS PART MAY BE DELETABLE
-	  THIS PART MAY BE DELETABLE
-	  THIS PART MAY BE DELETABLE
+	
+	
+	<!--
+	    THIS PART MAY BE DELETABLE
+	    THIS PART MAY BE DELETABLE
+	    THIS PART MAY BE DELETABLE
+	    THIS PART MAY BE DELETABLE
+	    THIS PART MAY BE DELETABLE
+	    THIS PART MAY BE DELETABLE
 	  -->
         {% block top_content %}
-		
-		
-		{% endblock %}
-		
+	
+	
+	{% endblock %}
+	
         {{course_info.base.after_top_content_ends}}
 
         <!-- main section -->
-		
+	
         {% block main_content %}
-		
-		{% endblock %}
-		
+	
+	{% endblock %}
+	
         {{course_info.base.after_main_content_ends}}
       </div>
     </div>
+
+
 
     <!-- footer section -->
     <div style="margin-top: 50px;" id="gcb-signature"></div>
@@ -241,5 +203,5 @@
       </div>
     </div>
     {{course_info.base.before_body_tag_ends}}
- </body>
+</body>
 </html>

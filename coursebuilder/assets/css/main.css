@@ -481,7 +481,7 @@ a.gcb-button-action {
   clear: both;
   content: " ";
   display: block;
-  height: 0;
+  height: S0;
   visibility: hidden;
 }
 /* insifnificant */
@@ -901,14 +901,17 @@ vertical-align: text-top;
 	vertical-align: text-top;
 }
 
-
+/*
+Should probably get rid of this because it changes
+EVERY unordered list that we want to use 
 ul {
 	list-style-type:none;
 	padding: 0;
 	margin: 0;
-	font-size: 0;
+	font-size: 10;
 	vertical-align: text-top;
 }
+*/
 
 ul#nav li{
 	font-family: Arial;

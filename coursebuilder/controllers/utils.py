@@ -30,15 +30,11 @@ from models.utils import get_all_scores
 import webapp2
 from google.appengine.api import users
 
-
-
-
 # The name of the template dict key that stores a course's base location.
 COURSE_BASE_KEY = 'gcb_course_base'
 
 # The name of the template dict key that stores data from course.yaml.
 COURSE_INFO_KEY = 'course_info'
-
 
 XSRF_SECRET = ConfigProperty(
     'gcb_xsrf_secret', str, (
@@ -223,9 +219,8 @@ class BaseHandler(ApplicationHandler):
         self.response.out.write(template.render(self.template_value))
 
 
-class MostBasicHandler(BaseHandler):
+class MostBasicHandler(BaseHandler): #This handler should not be used. It is just an example
     """Handles the new test page"""
-    
     def get(self):
         """Handles GET requests.
         Every Handler needs at least a get function"""
@@ -235,8 +230,26 @@ class MostBasicHandler(BaseHandler):
         It is not used in this handler, but it is needed if you want
         to prevent unregistered users to have access to the page"""
         
-        self.render('new_page.html')
-        """renders the html file that you want to use"""
+        self.render('new_page.html') #new_page.html is not a real file. 
+        """renders the html file that you want use"""
+            
+class PlaylistHandler(BaseHandler):
+    def get(self):
+        """Handles GET requests."""
+        
+        user = users.get_current_user() 
+        if not user:
+            self.template_value['loginUrl'] = users.create_login_url('/')
+        else:
+            self.template_value['email'] = user.email()
+            self.template_value['logoutUrl'] = users.create_logout_url('/')
+
+        self.template_value['navbar'] = {'course': True}
+        self.template_value['units'] = self.get_units()
+        if user and Student.get_enrolled_student_by_email(user.email()):
+            self.render('playlist.html')
+        else:
+            self.redirect('/preview')
 
 class BaseRESTHandler(BaseHandler):
     """Base REST handler."""
@@ -251,11 +264,6 @@ class BaseRESTHandler(BaseHandler):
                 args_dict)
             return False
         return True
-
-
-
-
-
 
 class PreviewHandler(BaseHandler):
     """Handler for viewing course preview."""

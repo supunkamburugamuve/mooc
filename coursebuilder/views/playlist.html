@@ -1,0 +1,216 @@
+{% extends 'base.html' %}
+
+{% block subtitle %}
+  {% trans %} Assessment {% endtrans %}
+{% endblock subtitle %}
+
+{% block top_content %}
+{% endblock %}
+
+{% block main_content %}
+
+<style>
+  h1 { padding: .2em; margin: 0; }
+  #products { float:left; width: 500px; margin-right: 2em; }
+  #cart { width: 200px; float: left; margin-top: 1em; }
+  /* style the list to maximize the droppable hitarea */
+  #cart ol { margin: 0; padding: 1em 0 1em 3em; }
+</style>
+<script>
+  $(function() {
+  $( "#playlistItems" ).accordion();
+  $( "#playlistItems li" ).draggable({
+  appendTo: "body",
+  helper: "clone"
+  });
+  $( "#droppedItems ol" ).droppable({
+  activeClass: "ui-state-default",
+  hoverClass: "ui-state-hover",
+  accept: ":not(.ui-sortable-helper)",
+  drop: function( event, ui ) {
+  $( this ).find( ".placeholder" ).remove();
+  $( "<li></li>" ).text( ui.draggable.text() ).appendTo( this );
+  }
+  }).sortable({
+  items: "li:not(.placeholder)",
+  sort: function() {
+  // gets added unintentionally by droppable interacting with sortable
+  // using connectWithSortable fixes this, but doesn't allow you to customize active/hoverClass options
+  $( this ).removeClass( "ui-state-default" );
+  }
+  });
+  });
+</script> 
+
+<style>
+  
+  li { list-style-type:none;}
+  
+  #playlist li {font-size: 16px;}
+
+  h1 { padding: .2em; margin: 0; }
+  #playlist { float:left; width: 300px; margin-left: 6em; margin-right: 2em; margin-top: 5em; }
+  #droppedItems { width: 380px; height: 400px; float: left; margin-top: 5em; }
+  /* style the list to maximize the droppable hitarea */
+  #droppedItems ol { margin: 0; padding: 1em 0 1em 3em; }
+  
+  
+  #screenshot{
+	position:absolute;
+	border:1px solid #ccc;
+	background:#333;
+	padding:5px;
+	display:none;
+	color:#fff;
+	}
+</style>
+
+<script>
+
+ 
+/*
+ * Url preview script 
+ * powered by jQuery (http://www.jquery.com)
+ * 
+ * written by Alen Grakalic (http://cssglobe.com)
+ * 
+ * for more info visit http://cssglobe.com/post/1695/easiest-tooltip-and-image-preview-using-jquery
+ *
+ */
+ 
+this.screenshotPreview = function(){	
+	/* CONFIG */
+
+		xOffset = 10;
+		yOffset = 30;
+
+		// these 2 variable determine popup's distance from the cursor
+		// you might want to adjust to get the right result
+
+	/* END CONFIG */
+	$("a.screenshot").hover(function(e){
+		this.t = this.title;
+		this.title = "";	
+		var c = (this.t != "") ? "<br/>" + this.t : "";
+		$("body").append("<p id='screenshot'><img src='"+ this.rel +"' alt='url preview' />"+ c +"</p>");								 
+		$("#screenshot")
+			.css("top",(e.pageY - xOffset) + "px")
+			.css("left",(e.pageX + yOffset) + "px")
+			.fadeIn("fast");						
+    },
+	function(){
+		this.title = this.t;	
+		$("#screenshot").remove();
+    });	
+	$("a.screenshot").mousemove(function(e){
+		$("#screenshot")
+			.css("top",(e.pageY - xOffset) + "px")
+			.css("left",(e.pageX + yOffset) + "px");
+	});			
+};
+
+
+// starting the script on page load
+$(document).ready(function(){
+	screenshotPreview();
+});
+  
+  </script>
+  
+  
+  
+  
+   <script>
+	$(function() {
+		$( document ).tooltip();
+	});
+	</script> 
+
+
+<div id="playlist">
+  <h1 class="ui-widget-header">Custom Playlist</h1>
+  <div id="playlistItems">
+    <h2><a href="#">Lesson 1</a></h2>
+    <div>
+      <ul>
+        <li><a href="http://www.cssglobe.com" class="screenshot" target="_black" 
+	       rel="http://www.onbile.com/info/wp-content/uploads/2011/11/cloudcomputing.jpg">Css Globe</a></li>
+        <li><a href="http://www.youtube.com/watch?v=hTGkz9cOtxs" target="_blank" 
+	       title="Short explanation of what this video is about.">Broadband</a></li>
+        <li><a href="http://www.youtube.com/watch?v=hTGkz9cOtxs" target="_blank" 
+	       title="Short explanation of what this video is about.">Cloud</a></li>
+	<li><a href="http://www.youtube.com/watch?v=hTGkz9cOtxs" target="_blank"
+	       title="Short explanation of what this video is about.">Community</a></li>
+        <li><a href="http://www.youtube.com/watch?v=hTGkz9cOtxs" target="_blank" 
+	       title="Short explanation of what this video is about.">Data Portability</a></li>
+        <li><a href="http://www.youtube.com/watch?v=hTGkz9cOtxs" target="_blank" 
+	       title="Short explanation of what this video is about.">Elasticity</a></li>
+      </ul> 
+    </div>
+    <h2><a href="#">Lesson 2</a></h2>
+    <div>
+      <ul>
+        <li><a href="http://www.youtube.com/watch?v=hTGkz9cOtxs" target="_blank">Flexibility</a></li>
+        <li><a href="http://www.youtube.com/watch?v=hTGkz9cOtxs" target="_blank">Hybrid</a></li>
+        <li><a href="http://www.youtube.com/watch?v=hTGkz9cOtxs" target="_blank">Interpersonability</a></li>
+		<li><a href="http://www.youtube.com/watch?v=hTGkz9cOtxs" target="_blank">Infrastructure</a></li>
+        <li><a href="http://www.youtube.com/watch?v=hTGkz9cOtxs" target="_blank">Migration</a></li>
+        <li><a href="http://www.youtube.com/watch?v=hTGkz9cOtxs" target="_blank">Navigation</a></li>
+      </ul>
+    </div>
+    <h2><a href="#">Lesson 3</a></h2>
+    <div>
+      <ul>
+        <li><a href="http://www.youtube.com/watch?v=hTGkz9cOtxs" target="_blank">Topic</a></li>
+        <li><a href="http://www.youtube.com/watch?v=hTGkz9cOtxs" target="_blank">Topic</a></li>
+        <li><a href="http://www.youtube.com/watch?v=hTGkz9cOtxs" target="_blank">Topic</a></li>
+		<li><a href="http://www.youtube.com/watch?v=hTGkz9cOtxs" target="_blank">Topic</a></li>
+        <li><a href="http://www.youtube.com/watch?v=hTGkz9cOtxs" target="_blank">Topic</a></li>
+        <li><a href="http://www.youtube.com/watch?v=hTGkz9cOtxs" target="_blank">Topic</a></li>
+      </ul>
+    </div>
+	<h2><a href="#">Lesson 4</a></h2>
+    <div>
+      <ul>
+        <li><a href="http://www.youtube.com/watch?v=hTGkz9cOtxs" target="_blank">Topic</a></li>
+        <li><a href="http://www.youtube.com/watch?v=hTGkz9cOtxs" target="_blank">Topic</a></li>
+        <li><a href="http://www.youtube.com/watch?v=hTGkz9cOtxs" target="_blank">Topic</a></li>
+		<li><a href="http://www.youtube.com/watch?v=hTGkz9cOtxs" target="_blank">Topic</a></li>
+        <li><a href="http://www.youtube.com/watch?v=hTGkz9cOtxs" target="_blank">Topic</a></li>
+        <li><a href="http://www.youtube.com/watch?v=hTGkz9cOtxs" target="_blank">Topic</a></li>
+      </ul>
+    </div>
+    <h2><a href="#">Lesson 5</a></h2>
+    <div>
+      <ul>
+        <li><a href="http://www.youtube.com/watch?v=hTGkz9cOtxs" target="_blank">Topic</a></li>
+        <li><a href="http://www.youtube.com/watch?v=hTGkz9cOtxs" target="_blank">Topic</a></li>
+        <li><a href="http://www.youtube.com/watch?v=hTGkz9cOtxs" target="_blank">Topic</a></li>
+		<li><a href="http://www.youtube.com/watch?v=hTGkz9cOtxs" target="_blank">Topic</a></li>
+        <li><a href="http://www.youtube.com/watch?v=hTGkz9cOtxs" target="_blank">Topic</a></li>
+        <li><a href="http://www.youtube.com/watch?v=hTGkz9cOtxs" target="_blank">Topic</a></li>
+      </ul>
+    </div>
+    <h2><a href="#">Lesson 6</a></h2>
+    <div>
+      <ul>
+        <li><a href="http://www.youtube.com/watch?v=hTGkz9cOtxs" target="_blank">Topic</a></li>
+        <li><a href="http://www.youtube.com/watch?v=hTGkz9cOtxs" target="_blank">Topic</a></li>
+        <li><a href="http://www.youtube.com/watch?v=hTGkz9cOtxs" target="_blank">Topic</a></li>
+		<li><a href="http://www.youtube.com/watch?v=hTGkz9cOtxs" target="_blank">Topic</a></li>
+        <li><a href="http://www.youtube.com/watch?v=hTGkz9cOtxs" target="_blank">Topic</a></li>
+        <li><a href="http://www.youtube.com/watch?v=hTGkz9cOtxs" target="_blank">Topic</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="droppedItems">
+  <h1 class="ui-widget-header">Drag Video Topics Into Box</h1>
+  <div class="ui-widget-content">
+    <ol>
+    </ol>
+  </div>
+</div>
+
+{% endblock main_content%}

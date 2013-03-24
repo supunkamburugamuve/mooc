@@ -481,7 +481,7 @@ a.gcb-button-action {
   clear: both;
   content: " ";
   display: block;
-  height: S0;
+  height: 0;
   visibility: hidden;
 }
 /* insifnificant */
@@ -901,17 +901,14 @@ vertical-align: text-top;
 	vertical-align: text-top;
 }
 
-/*
-Should probably get rid of this because it changes
-EVERY unordered list that we want to use 
+
 ul {
 	list-style-type:none;
 	padding: 0;
 	margin: 0;
-	font-size: 10;
+	font-size: 0;
 	vertical-align: text-top;
 }
-*/
 
 ul#nav li{
 	font-family: Arial;
@@ -973,7 +970,7 @@ ul#nav li:hover ul{
 
 
 
-/* Set the size and font of the tab widget */
+/* /* Set the size and font of the tab widget */
 .tabGroup {
 	padding-bottom: 50px;
     font: 12pt arial, verdana;
@@ -982,7 +979,7 @@ ul#nav li:hover ul{
 	margin: 0 auto;
 }
  
-/* Configure the radio buttons to hide off screen */
+Configure the radio buttons to hide off screen
 .tabGroup > input[type="radio"] {
     position: absolute;
     left:-100px;
@@ -990,33 +987,33 @@ ul#nav li:hover ul{
 	margin: 0 auto;
 }
  
-/* Configure labels to look like tabs */
+Configure labels to look like tabs
 .tabGroup > input[type="radio"] + label {
-    /* inline-block such that the label can be given dimensions */
+    inline-block such that the label can be given dimensions
     display: inline-block;
  
-    /* A nice curved border around the tab */
+    A nice curved border around the tab
 
 
      
-    /* the bottom border is handled by the tab content div */
+    the bottom border is handled by the tab content div
     border-bottom: 0;
  
-    /* Padding around tab text */
+    Padding around tab text
     padding: 5px 10px;
  
-    /* Set the background color to default gray (non-selected tab) */
+    Set the background color to default gray (non-selected tab)
     background-color:#298ccf;
 	margin: 0 auto;
 }
  
-/* Focused tabs need to be highlighted as such */
+Focused tabs need to be highlighted as such
 .tabGroup > input[type="radio"]:focus + label {
 
 	margin: 0 auto;
 }
  
-/* Checked tabs must be white with the bottom border removed */
+Checked tabs must be white with the bottom border removed
 .tabGroup > input[type="radio"]:checked + label {
     background-color:white;
     font-weight: bold;
@@ -1025,12 +1022,12 @@ ul#nav li:hover ul{
 	margin: 0 auto;
 }
  
-/* The tab content must fill the widgets size and have a nice border */
+The tab content must fill the widgets size and have a nice border
 .tabGroup > div {
     display: none;
  
     background-color: white;
-   /* padding: 10px 10px; */
+   padding: 10px 10px;
     height: 100%;
     overflow: hidden;
      
@@ -1042,12 +1039,90 @@ ul#nav li:hover ul{
     -moz-border-radius: 0 5px 5px 5px;
     -webkit-border-radius: 0 5px 5px 5px;
 	margin: 0 auto;
-}
+} */
  
 /* This matchs tabs displaying to thier associated radio inputs */
-.tab1:checked ~ .tab1, .tab2:checked ~ .tab2, .tab3:checked ~ .tab3 {
+/* .tab1:checked ~ .tab1, .tab2:checked ~ .tab2, .tab3:checked ~ .tab3 {
     display: block;
 	margin: 0 auto;
 }
 
+ */
+ 
+.page_content {z-index: 0; min-height:100$; height: 100$; padding-top: 100px; padding-bottom: 50px;}
+
+.page_content {z-index: 0; min-height:100$; height: 100$; padding-top: 100px; padding-bottom: 50px;}
+ 
+.sp h2 { font-size: 1.15em; margin: 0 0 .5em 0; }
+.sp p { font-size: 1em; margin: 0 0 1em 0; }
+
+/* layout */
+.sp { width: 900px; position: relative; margin: 0 auto;  }
+
+.sp .tabs { width: 1000px; margin: 0 auto; position: relative; display: none; }
+
+.sp .tabs span {
+	display: inline-block;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	padding: 9px 20px 9px 20px;
+	margin: 0px;
+	background-color: #fff;
+	cursor: pointer;
+	position: relative;
+}
+
+.sp .tabs span:first-child {
+
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	-webkit-border-top-left-radius: 12px;
+	-moz-border-radius-topleft: 12px;
+	border-top-left-radius: 12px;
+}
+
+.sp .tabs span:last-child {
+
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	-webkit-border-top-right-radius: 12px;
+	-moz-border-radius-topright: 12px;
+	border-top-right-radius: 12px;
+}
+
+.sp .tabs span.selected {
+	color: #999;
+	border-bottom: 1px solid #fff;
+}
+
+.sp .panel_container {
+	position: relative;
+	border: 1px solid #ccc;
+	background-color: #fff;
+	overflow: hidden;
+	margin-top: -1px;
+}
+
+.sp .panel_container .panel .panel_content { padding: 15px 15px 5px 15px; }
+
+.sp .tabs .ipad.selected { font-weight: bold; color: white; background-color: #0292d9; border-bottom: 1px solid #8dbc52; }
+.sp .panels .ipad { background: url("http://mypage.iu.edu/~hplagema/mooc/images/credentials.jpg") no-repeat 0px 0px; }
+.sp .panels .ipad h2 { color: #fff; }
+.sp .panels .ipad p { color: #284108; margin-right: 150px; }
+.sp .panels .ipad a { color: #fff; }
+
+.sp .tabs .video.selected { font-weight: bold; color: white; background-color: #0292d9; border-bottom: 1px solid #354e5c; }
+.sp .panels .video { background: url("http://mypage.iu.edu/~hplagema/mooc/images/learn_more.jpg") no-repeat 0px 0px; }
+.sp .panels .video .panel_content { margin-right: 125px; }
+.sp .panels .video .panel_content h2 { color: #000; }
+.sp .panels .video .panel_content p { color: #fff; }
+.sp .panels .video .panel_content a { color: #ffce6f; }
+
+.sp .tabs .photo.selected { font-weight: bold; color: #fff; background-color: #0292d9; border-bottom: 1px solid #000; }
+.sp .panels .photo { background: url("http://mypage.iu.edu/~hplagema/mooc/images/connecttothecloud2.jpg") no-repeat 0px 0px; }
+.sp .panels .photo .panel_content { margin-right: 150px; }
+.sp .panels .photo h2 { color: #fff; }
+.sp .panels .photo p { color: #fff; }
+.sp .panels .photo a { color: #ffcc00; }
+.sp .panels .thumbnail { border: 1px solid #fff; }
 

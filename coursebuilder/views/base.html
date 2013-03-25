@@ -3,8 +3,10 @@
 <!-- base.html -->
 <html class="google" lang="{{course_info.course.locale}}">
   <head>
-	
-	<script type="text/javascript" src="assets/lib/main.js"></script>
+
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+
+    <script type="text/javascript" src="assets/lib/main.js"></script>
     <base href="{{ gcb_course_base }}" />
     <script>
       (function(H) {
@@ -20,17 +22,16 @@
       {% endblock subtitle %}
     </title>
 
-
-	
-	
-	
     <link rel="icon" href="assets/img/favicon.ico" />
 
     <link href="assets/css/main.css" rel="stylesheet" type="text/css">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
 
     <!-- jQuery should be imported first -->
-    <script src="assets/lib/jquery-1.7.2.min.js"></script>
+    <!-- <script src="assets/lib/jquery-1.7.2.min.js"></script> -->
+    <!-- version 1.9.1 must be used for the playlist -->
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
 
     <!-- The following translated strings are used in activity-generic.js and should be
     declared before that file is imported. -->

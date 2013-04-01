@@ -122,57 +122,65 @@ $(document).ready(function(){
   });
 </script> 
 
+<div style="margin-top:40px;">
+{% if hasList %}
+<a href={{start_plist_url}}> View your currently saved playlist </a>
+{% endif %}
+</div>
+
 <div id="playlist" style="color: #fff;">
   <h1 class="ui-widget-header" style="color: #fff; font-size: 22px;">Lessons</h1>
-  <div id="playlistItems">
+  <div id="playlistItems">    
     <h2><a href="#" style="color: #fff;">Unit 1</a></h2>
     <div>
       <ul> 
 	<li><label for="plist0" title="description">1.1 Lesson Name</label> <input name="plist0" type="hidden" value="1.1"></li>
-	<li><label for="plist1" title="description">1.2 Lesson Name</label> <input name="plist1" type="hidden" value="1.2"></li>
-	<li><label for="plist2" title="description">1.3 Lesson Name</label> <input name="plist2" type="hidden" value="1.3"></li>
-	<li><label for="plist3" title="description">1.4 Lesson Name</label> <input name="plist3" type="hidden" value="1.4"></li>
-	<li><label for="plist4" title="description">1.5 Lesson Name</label> <input name="plist4" type="hidden" value="1.5"></li>
       </ul> 
     </div>
     <h2><a href="#" style="color: #fff;">Unit 2</a></h2>
     <div>
       <ul> 
-	<li><label for="plist5" title="description">2.1 Lesson Name</label> <input name="plist5" type="hidden" value="2.1"></li>
-	<li><label for="plist6" title="description">2.2 Lesson Name</label> <input name="plist6" type="hidden" value="2.2"></li>
-	<li><label for="plist7" title="description">2.3 Lesson Name</label> <input name="plist7" type="hidden" value="2.3"></li>
-	<li><label for="plist8" title="description">2.4 Lesson Name</label> <input name="plist8" type="hidden" value="2.4"></li>
-	<li><label for="plist9" title="description">2.5 Lesson Name</label> <input name="plist9" type="hidden" value="2.5"></li>
+	<li><label for="plist1" title="description">2.1 Lesson Name</label> <input name="plist1" type="hidden" value="2.1"></li>
+	<li><label for="plist2" title="description">2.2 Lesson Name</label> <input name="plist2" type="hidden" value="2.2"></li>
+	<li><label for="plist3" title="description">2.3 Lesson Name</label> <input name="plist3" type="hidden" value="2.3"></li>
+	<li><label for="plist4" title="description">2.4 Lesson Name</label> <input name="plist4" type="hidden" value="2.4"></li>
+	<li><label for="plist5" title="description">2.5 Lesson Name</label> <input name="plist5" type="hidden" value="2.5"></li>
+	<li><label for="plist6" title="description">2.6 Lesson Name</label> <input name="plist6" type="hidden" value="2.6"></li>
+	<li><label for="plist7" title="description">2.7 Lesson Name</label> <input name="plist7" type="hidden" value="2.7"></li>
       </ul> 
     </div>
     <h2><a href="#" style="color: #fff;">Unit 3</a></h2>
     <div>
       <ul> 
-	<li><label for="plist10" title="description">3.1 Lesson Name</label> <input name="plist10" type="hidden" value="3.1"></li>
-	<li><label for="plist11" title="description">3.2 Lesson Name</label> <input name="plist11" type="hidden" value="3.2"></li>
-	<li><label for="plist12" title="description">3.3 Lesson Name</label> <input name="plist12" type="hidden" value="3.3"></li>
-	<li><label for="plist13" title="description">3.4 Lesson Name</label> <input name="plist13" type="hidden" value="3.4"></li>
-	<li><label for="plist14" title="description">3.5 Lesson Name</label> <input name="plist14" type="hidden" value="3.5"></li>
+	<li><label for="plist8" title="description">3.1 Lesson Name</label> <input name="plist8" type="hidden" value="3.1"></li>
+	<li><label for="plist9" title="description">3.2 Lesson Name</label> <input name="plist9" type="hidden" value="3.2"></li>
+	<li><label for="plist10" title="description">3.3 Lesson Name</label> <input name="plist10" type="hidden" value="3.3"></li>
       </ul> 
     </div>
     <h2><a href="#" style="color: #fff;">Unit 4</a></h2>
     <div>
       <ul> 
-	<li><label for="plist15" title="description">4.1 Lesson Name</label> <input name="plist15" type="hidden" value="4.1"></li>
-	<li><label for="plist16" title="description">4.2 Lesson Name</label> <input name="plist16" type="hidden" value="4.2"></li>
-	<li><label for="plist17" title="description">4.3 Lesson Name</label> <input name="plist17" type="hidden" value="4.3"></li>
-	<li><label for="plist18" title="description">4.4 Lesson Name</label> <input name="plist18" type="hidden" value="4.4"></li>
-	<li><label for="plist19" title="description">4.5 Lesson Name</label> <input name="plist19" type="hidden" value="4.5"></li>
+	<li><label for="plist11" title="description">4.1 Lesson Name</label> <input name="plist11" type="hidden" value="4.1"></li>
+	<li><label for="plist12" title="description">4.2 Lesson Name</label> <input name="plist12" type="hidden" value="4.2"></li>
       </ul> 
     </div>
     <h2><a href="#" style="color: #fff;">Unit 5</a></h2>
     <div>
       <ul> 
-	<li><label for="plist20" title="description">5.1 Lesson Name</label> <input name="plist20" type="hidden" value="5.1"></li>
-	<li><label for="plist21" title="description">5.2 Lesson Name</label> <input name="plist21" type="hidden" value="5.2"></li>
-	<li><label for="plist22" title="description">5.3 Lesson Name</label> <input name="plist22" type="hidden" value="5.3"></li>
-	<li><label for="plist23" title="description">5.4 Lesson Name</label> <input name="plist23" type="hidden" value="5.4"></li>
-	<li><label for="plist24" title="description">5.5 Lesson Name</label> <input name="plist24" type="hidden" value="5.5"></li>
+	<li><label for="plist13" title="description">5.1 Lesson Name</label> <input name="plist13" type="hidden" value="5.1"></li>
+	<li><label for="plist14" title="description">5.2 Lesson Name</label> <input name="plist14" type="hidden" value="5.2"></li>
+	<li><label for="plist15" title="description">5.3 Lesson Name</label> <input name="plist15" type="hidden" value="5.3"></li>
+	<li><label for="plist16" title="description">5.4 Lesson Name</label> <input name="plist16" type="hidden" value="5.4"></li>
+	<li><label for="plist17" title="description">5.5 Lesson Name</label> <input name="plist17" type="hidden" value="5.5"></li>
+	<li><label for="plist18" title="description">5.6 Lesson Name</label> <input name="plist18" type="hidden" value="5.6"></li>
+      </ul> 
+    </div>
+    <h2><a href="#" style="color: #fff;">Unit 6</a></h2>
+    <div>
+      <ul> 
+	<li><label for="plist19" title="description">6.1 Lesson Name</label> <input name="plist19" type="hidden" value="6.1"></li>
+	<li><label for="plist20" title="description">6.2 Lesson Name</label> <input name="plist20" type="hidden" value="6.2"></li>
+	<li><label for="plist21" title="description">6.3 Lesson Name</label> <input name="plist21" type="hidden" value="6.3"></li>
       </ul> 
     </div>
   </div>

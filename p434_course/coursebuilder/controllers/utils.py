@@ -248,6 +248,14 @@ class PlaylistHandler(BaseHandler):
             self.template_value['email'] = user.email()
             self.template_value['logoutUrl'] = users.create_logout_url('/')
 
+        if len(student.playlist) > 0:
+            unit_id = str(student.playlist[0][0])
+            lesson_id = str(student.playlist[0][2])
+            self.template_value['start_plist_url'] = ('unit?unit=%s&lesson=%s' % (unit_id, lesson_id))
+            self.template_value['hasList'] = True
+            
+        else:
+            self.template_value['hasList'] = False
         self.template_value['navbar'] = {'course': True}
         self.template_value['units'] = self.get_units()
         if user and Student.get_enrolled_student_by_email(user.email()):

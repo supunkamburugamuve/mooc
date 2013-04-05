@@ -268,11 +268,13 @@ class PlaylistHandler(BaseHandler):
         user = self.personalize_page_and_get_user()
         student = Student.get_by_email(user.email())
         playlist = []
-        for i in range (0, 22):
-            plist = 'plist' + str(i)
-            plist = self.request.get(plist)
-            if (plist != ""):
-                playlist.append(plist)     
+        playlist = self.request.get_all('plist')
+        self.response.out.write(playlist)
+        # for i in range (0, 22):
+        #     plist = 'plist' + str(i)
+        #     plist = self.request.get(plist)
+        #     if (plist != ""):
+        #         playlist.append(plist)     
         student.playlist = playlist
         student.put()
         self.redirect('/playlist')

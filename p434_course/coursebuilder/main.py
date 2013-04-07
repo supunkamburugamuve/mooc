@@ -42,6 +42,9 @@ urls = [
     ('/student/editstudent', utils.StudentEditStudentHandler),
     ('/student/home', utils.StudentProfileHandler),
     ('/student/unenroll', utils.StudentUnenrollHandler),
+	('/homework', utils.HomeworkHandler),
+	('/homework1', utils.Homework1Handler),
+	('/tools', utils.ToolsHandler),
     ('/unit', lessons.UnitHandler),
     ('/playlist', utils.PlaylistHandler),
     ('/playlist_viewer', lessons.PlaylistViewerHandler)]

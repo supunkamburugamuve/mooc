@@ -232,6 +232,30 @@ class MostBasicHandler(BaseHandler): #This handler should not be used. It is jus
         
         self.render('new_page.html') #new_page.html is not a real file. 
         """renders the html file that you want use"""
+		
+class HomeworkHandler(BaseHandler):     
+    def get(self):        
+        user = users.get_current_user()         
+
+        if not user:
+            self.template_value['loginUrl'] = users.create_login_url('/')     
+        self.render('homework.html') 
+		
+class Homework1Handler(BaseHandler):     
+    def get(self):        
+        user = users.get_current_user()         
+
+        if not user:
+            self.template_value['loginUrl'] = users.create_login_url('/')     
+        self.render('homework1.html')
+class ToolsHandler(BaseHandler):     
+    def get(self):        
+        user = users.get_current_user()         
+
+        if not user:
+            self.template_value['loginUrl'] = users.create_login_url('/')     
+        self.render('tools.html')
+        
 
 
 class PlaylistHandler(BaseHandler):

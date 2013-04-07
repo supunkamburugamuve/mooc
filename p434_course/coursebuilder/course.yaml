@@ -48,7 +48,7 @@ course:
     alt_text: 
 
   # Course start date.
-  start_date: 'July 10, 2012'
+  start_date: 'August 23, 2013'
 
   # Forum URL. For details, see
   #
@@ -76,10 +76,10 @@ course:
 
 institution:
   # Name of your institution
-  name: 'Add Your Institution Here'
+  name: 'Indiana University'
 
   # URL of your institution's webpage
-  url: 'LINK_TO_YOUR_INSTITUTION_HERE'
+  url: 'http://www.indiana.edu'
 
   # Link and alt text for the logo of the course or your institution
   logo:
@@ -108,7 +108,7 @@ base:
   before_body_tag_ends: '<!-- base.before_body_tag_ends -->'
 
   # Whether to show a G+ button on the header of all pages.
-  show_gplus_button: True
+  show_gplus_button: false
 
   #
   #DELETED THE NAV_HEADER!!!

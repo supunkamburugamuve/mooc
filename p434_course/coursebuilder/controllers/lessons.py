@@ -73,14 +73,22 @@ class CourseHandler(BaseHandler):
     def get(self):
         """Handles GET requests."""
         user = self.personalize_page_and_get_user()
+        
+
         if not user:
             self.redirect('/preview')
             return None
+
+        student = Student.get_by_email(user.email())
+        playlist = student.playlist
+        playlist_urls = student.playlist_urls
 
         if not self.personalize_page_and_get_enrolled():
             return
 
         self.template_value['units'] = self.get_units()
+        self.template_value['playlist'] = playlist
+        self.template_value['playlist_urls'] = playlist_urls
         self.template_value['navbar'] = {'course': True}
         self.render('course.html')
 

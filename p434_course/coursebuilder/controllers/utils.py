@@ -269,13 +269,14 @@ class PlaylistHandler(BaseHandler):
             self.template_value['loginUrl'] = users.create_login_url('/')
         else:
             self.template_value['playlist'] = student.playlist
+            self.template_value['playlist_urls'] = student.playlist_urls
             self.template_value['email'] = user.email()
             self.template_value['logoutUrl'] = users.create_logout_url('/')
 
         if len(student.playlist) > 0:
-            unit_id = str(student.playlist[0][0])
-            lesson_id = str(student.playlist[0][2])
-            self.template_value['start_plist_url'] = ('unit?unit=%s&lesson=%s' % (unit_id, lesson_id))
+            #unit_id = str(student.playlist[0][0])
+            #lesson_id = str(student.playlist[0][2])
+            self.template_value['start_plist_url'] = str(student.playlist[0]) #('unit?unit=%s&lesson=%s' % (unit_id, lesson_id))
             self.template_value['hasList'] = True
             
         else:
@@ -291,14 +292,16 @@ class PlaylistHandler(BaseHandler):
         """Handles POST requests"""
         user = self.personalize_page_and_get_user()
         student = Student.get_by_email(user.email())
-        playlist = []
         playlist = self.request.get_all('plist')
-        self.response.out.write(playlist)
-        # for i in range (0, 22):
+        playlist_urls = list(xrange(len(playlist)))        
+        for i in range (0, len(playlist)):
+            playlist_urls[i] = ('unit?unit=%s&lesson=%s' % (playlist[i][0], playlist[i][2]))        
+            # for i in range (0, 22):
         #     plist = 'plist' + str(i)
         #     plist = self.request.get(plist)
         #     if (plist != ""):
-        #         playlist.append(plist)     
+        #         playlist.append(plist)
+        student.playlist_urls = playlist_urls
         student.playlist = playlist
         student.put()
         self.redirect('/playlist')

@@ -22,9 +22,8 @@
           {% if course_info.course.forum_embed_url %}
             <script type="text/javascript">
               document.getElementById("forum_embed").src =
-              "{{course_info.course.forum_embed_url}}"
-              + "&showsearch=true&showpopout=true&showtabs=false"
-              + "&parenturl=" + encodeURIComponent(window.location.href);
+              "{{course_info.course.forum_embed_url}}";
+              
             </script>
           {% endif %}
         </div>

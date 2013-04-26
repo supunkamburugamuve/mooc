@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+
+{% block subtitle %}
+  {% trans %} Homework 2{% endtrans %}
+{% endblock subtitle %}
+
+{% block top_content %}
+{% endblock %}
+
+{% block main_content %}
+
+ <title>Homework 2 CSCI-P434</title>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+
+</script><style type="text/css"></style>
+
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+ <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+  <link rel="stylesheet" href="assets/css/main.css" />
+
+<script>
+  $(function() {
+    $( "#accordion" ).accordion({
+      collapsible: true,
+	  heightStyle: "content"
+    });
+  });
+  </script>
+    
+
+
+<body>
+
+<div id="content_wrapper">
+	<div class="content">
+
+        <!-- content area -->
+                
+                
+      <h1>Homework 3  : HBase Shell User Guide  </h1>
+      	<div id="accordion">
+              
+
+<h2>Contents</h2>
+
+<div>
+    <ol>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#prerequisite">Prerequisite</a></li>
+<li><a href="#r_hbase">Running HBase</a></li>
+<li><a href="#shell_exercises">Shell Exercises: Creating Tables in HBase</a></li>
+<li><a href="#stopping">Stopping HBase</a></li>
+        <ol type="I">
+        </ol>
+    </ol>
+</div>
+
+<h2><a name="introduction">1. Introduction</a></h2>
+<div>
+<p align="justify">Hadoop HBase a column-oriented database management system that runs on top of HDFS.  It is well suited for sparse data sets, which are common in many big  data use cases. Unlike relational database systems, HBase does not  support a structured query language like SQL; in fact, HBase isn’t a  relational data store at all. HBase applications are written in Java  much like a typical MapReduce application. </p>
+</div>
+<h2 align="justify">
+  <a name="prerequisite">2. Prerequisite </a></h2>
+<div>
+
+  <p><strong>Mandatory</strong></p>
+  <p>Hadoop HBase - 0.90.6 </p>
+  <p>Java 1.6</p>
+  <p><strong>Download</strong></p>
+  <p>Decompress and untar your download and then change into the       unpacked directory.</p>
+  <pre>$ tar xfz hbase-0.90.6-SNAPSHOT.tar.gz
+
+$ cd hbase-0.90.6-SNAPSHOT
+  </pre>
+  <p><strong>Configure</strong></p>
+  <p>1. At this point, you are ready to start HBase. But before starting       it, you might want to edit conf/hbase-site.xml and       set the directory you want HBase to write to,       hbase.rootdir.  </p>
+  <pre>&lt;?xml version="1.0"?&gt;<br> 
+&lt;?xml-stylesheet type="text/xsl" href="configuration.xsl"?&gt; <br>
+
+&lt;configuration&gt;  <br>
+ &lt;property&gt;<br>
+     &lt;name&gt;hbase.rootdir&lt;/name&gt; <br>
+    &lt;value&gt;file:///DIRECTORY/hbase&lt;/value&gt;<br>
+   &lt;/property&gt;<br>
+ &lt;/configuration&gt; <br></pre>
+  <p>*Replace DIRECTORY in the above with a       path to a directory where you want HBase to store its data. By default,       hbase.rootdir is set to       /tmp/hbase-${user.name} which means you'll lose all       your data whenever your server reboots (Most operating systems clear       /tmp on restart).  </p>
+  </div>
+  <h2><a name="r_hbase">3. Running HBase</a></h2>
+<div>
+<p align="justify">Now, start HBase</p>
+<pre>$ ./bin/start-hbase.sh <br>
+starting Master, logging to logs/hbase-user-master-example.org.out
+</pre>
+</div>
+<h2><a name="shell_exercises">4. Shell Excersises </a></h2>
+<div>
+<p>Connect to your running HBase via the <strong>shell</strong>.</p>
+<pre>$ ./bin/hbase shell <br>HBase Shell; enter 'help&lt;RETURN&gt;' for list of supported commands. <br>Type "exit&lt;RETURN&gt;" to leave the HBase Shell <br>Version: 0.90.0, r1001068, Fri Sep 24 13:55:42 PDT 2010  <br>hbase(main):001:0&gt; </pre>
+<p>Type <strong>help</strong> and then <strong>&lt;RETURN&gt;</strong> to see a listing of shell commands and       options. Browse at least the paragraphs at the end of the help emission       for the gist of how variables and command arguments are entered into the       HBase shell; in particular note how table names, rows, and columns,       etc., must be quoted.</p>
+<p>Create a table named test with a single column family named cf.       Verify its creation by listing all tables and then insert some       values.</p>
+<pre>hbase(main):003:0&gt; create 'test', 'cf' <br>0 row(s) in 1.2200 seconds<br>hbase(main):003:0&gt; list 'test'
+..
+1 row(s) in 0.0550 seconds <br>hbase(main):004:0&gt; put 'test', 'row1', 'cf:a', 'value1' <br>0 row(s) in 0.0560 seconds <br>hbase(main):005:0&gt; put 'test', 'row2', 'cf:b', 'value2' <br>0 row(s) in 0.0370 seconds <br>hbase(main):006:0&gt; put 'test', 'row3', 'cf:c', 'value3' <br>0 row(s) in 0.0450 seconds</pre>
+<p>Above we inserted 3 values, one at a time. The first insert is at       row1, column cf:a with a value of       value1. Columns in HBase are comprised of a column family prefix --       cf in this example -- followed by a colon and then a       column qualifier suffix (a in this case).</p>
+<p>Verify the data insert.</p>
+<p>Run a scan of the table by doing the following</p>
+<pre>hbase(main):007:0&gt; scan 'test' <br>
+ROW        COLUMN+CELL <br>
+row1       column=cf:a, timestamp=1288380727188, value=value1 <br>
+row2       column=cf:b, timestamp=1288380738440, value=value2 <br>
+row3       column=cf:c, timestamp=1288380747365, value=value3 <br>
+3 row(s) in 0.0590 seconds</pre>
+<p>Get a single row as follows</p>
+<pre>hbase(main):008:0&gt; get 'test', 'row1' <br>
+COLUMN      CELL <br>
+cf:a        timestamp=1288380727188, value=value1 <br>
+1 row(s) in 0.0400 seconds</pre>
+<p>Now, disable and drop your table. This will clean up all done       above.</p>
+<pre>hbase(main):012:0&gt; disable 'test'  <br>
+0 row(s) in 1.0930 seconds <br>
+
+hbase(main):013:0&gt; drop 'test' <br>
+0 row(s) in 0.0770 seconds </pre>
+<p>Exit the shell by typing exit.</p>
+<pre>hbase(main):014:0&gt; exit</pre>
+
+</div>
+
+
+<h2><a name="stopping">5. Stopping HBase</a></h2>
+ <div title="1.2.4. Stopping HBase">
+   <p>Stop your hbase instance by running the stop script.</p>
+   <pre>$ ./bin/stop-hbase.sh <br>stopping hbase...............</pre>
+
+         <h3>&nbsp;</h3>
+       </div>
+     </div>
+   </div>
+
+
+
+</body>
+{% endblock main_content%}

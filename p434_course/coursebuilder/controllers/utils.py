@@ -241,13 +241,30 @@ class HomeworkHandler(BaseHandler):
             self.template_value['loginUrl'] = users.create_login_url('/')     
         self.render('homework.html') 
 		
-class Homework1Handler(BaseHandler):     
+class HadoopTutorialHandler(BaseHandler):     
     def get(self):        
         user = users.get_current_user()         
 
         if not user:
             self.template_value['loginUrl'] = users.create_login_url('/')     
-        self.render('homework1.html')
+        self.render('hadooptutorial.html')
+		
+class PigTutorialHandler(BaseHandler):     
+    def get(self):        
+        user = users.get_current_user()         
+
+        if not user:
+            self.template_value['loginUrl'] = users.create_login_url('/')     
+        self.render('pigtutorial.html')
+		
+class HBaseTutorialHandler(BaseHandler):     
+    def get(self):        
+        user = users.get_current_user()         
+
+        if not user:
+            self.template_value['loginUrl'] = users.create_login_url('/')     
+        self.render('hbasetutorial.html')
+		
 class ToolsHandler(BaseHandler):     
     def get(self):        
         user = users.get_current_user()         

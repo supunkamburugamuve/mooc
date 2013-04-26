@@ -1,0 +1,237 @@
+{% extends 'base.html' %}
+
+{% block subtitle %}
+  {% trans %} Homework 2{% endtrans %}
+{% endblock subtitle %}
+
+{% block top_content %}
+{% endblock %}
+
+{% block main_content %}
+
+ <title>Homework 2 CSCI-P434</title>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+
+</script><style type="text/css"></style>
+
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+ <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+  <link rel="stylesheet" href="assets/css/main.css" />
+
+<script>
+  $(function() {
+    $( "#accordion" ).accordion({
+      collapsible: true,
+	  heightStyle: "content"
+    });
+  });
+  </script>
+    
+
+
+<body>
+
+<div id="content_wrapper">
+	<div class="content">
+
+        <!-- content area -->
+                
+                
+      <h1><strong>Homework 2  : Using Pig for Data Analysis</strong> </h1>
+      	<div id="accordion">
+        
+
+        	      <h2>1. <a name="overview">Overview</a></h2>
+         <div>
+
+		  <p>Apache Pig is a platform for analyzing large data sets that consists of a high-level language for expressing data analysis programs. This page shows how to run Pig scripts using Local mode and MapReduce mode  </p>
+
+          </div>
+
+  <h2>2. <a name="installation">Installation</a></h2>
+          <div>
+            <h2>Software Installation</h2>
+        <p align="justify">Pig works on Linux systems and you need Java, Hadoop, Pig packages to run Pig scripts. Python and JavaScript are optional components to leverage Pig advanced features.</p>
+        <p align="justify">Mandatory:<br />
+&nbsp;&nbsp;&nbsp;1) Java 1.6 - http://java.sun.com/javase/downloads/index.jsp<br />
+&nbsp;&nbsp;&nbsp;2) Hadoop 0.20.2, - http://hadoop.apache.org/common/releases.html <br />
+&nbsp;&nbsp;&nbsp;3) Pig 0.8.1, 0.9.0, 0.10.0 – http://pig.apache.org/releases.html#Download</p>
+        <p align="justify">Optional:<br />
+        &nbsp;&nbsp;&nbsp;1) Python 2.5 - http://jython.org/downloads.html<br />
+	  &nbsp;&nbsp;&nbsp;2) JavaScript 1.7 - https://developer.mozilla.org/en/Rhino_downloads_archive</p>
+        <h2>Configuration</h2>
+        <p>Add "/pig-0.10.0/bin" to your path. Use export (bash,sh) or setenv (csh). </p>
+        <pre>For example: $ export PATH=/&lt;my-path-to-pig&gt;/pig-0.10.0/bin:$PATH </pre>
+        <h2>Test Installation</h2>
+        <p>Test the Pig installation with this simple command: </p>
+        <pre>$ pig -help</pre>
+
+  </div>
+
+
+
+  <h2>3. <a name="runningpig">Running Pig Scripts</a></h2>
+	<div>
+        <p align="justify">You can run Pig (execute Pig Latin statements and Pig commands) using various modes.</p>
+        <table width="461" height="125" border="1">
+          <tr>
+            <td width="145">&nbsp;</td>
+            <td width="116">Local Mode</td>
+            <td width="178">MapReduce Mode</td>
+          </tr>
+          <tr>
+            <td>Interactive Mode</td>
+            <td>Yes</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>Batch Mode</td>
+            <td>Yes</td>
+            <td>Yes</td>
+          </tr>
+        </table>
+      <li><strong>Pig has two execution modes:</strong></li>
+
+            <p>Local Mode – To run Pig in local mode, you need access to a single machine; all files are installed and run using your local host and file system. Specify local mode using the -x flag  <pre>Sample: (pig -x local) </pre>
+            </p>
+            <p>MapReduce Mode – To run Pig in mapreduce mode, you need access to a Hadoop cluster and HDFS installation. You can specify mapreduce mode using the -x flag    
+              <pre>Sample: (pig -x mapreduce)</pre>
+            </p>
+      <li><strong>Pig also has two invocation modes:</strong></li>
+            <p><strong>Interactive Mode</strong> - You can run Pig in interactive mode using the Grunt shell. Invoke the Grunt shell using the &quot;pig&quot; command (as shown below) and then enter your Pig Latin statements and Pig commands interactively at the command line.</p>
+            <p>Sample:</p>
+            <pre>
+grunt> messages = load 'lines' using PigStorage(':');<br />
+grunt> outputs = Foreach messages Generate $0 as ID;<br />
+grunt> dump outputs; </pre>
+<p><strong>Batch Mode</strong>You can run Pig in batch mode using Pig scripts and the &quot;pig&quot; command (in local or hadoop mode).</p><p>Sample:</p><pre>$pig -x local test.pig 
+$pig -x mapreduce test.pig</pre>
+
+  </div>
+  <h2>4. <a name="commands">Basic Commands</a></h2>
+<div>
+      <p align="justify">We show how to run several basic Pig statements using local mode</p>
+      <ol>
+        <li>Pig Statements</li> 
+<pre>A = load './student.txt' as (name:chararray, age:int, gpa:float);<br />
+B = foreach A generate name, gpa;<br />
+Dump B;<br />
+D = foreach B generate gpa + 0.1;<br />
+Store "./output.txt"</pre>
+
+<li>Contents of student.txt</li>
+<pre>
+tom		19	3.7<br />
+nick	20	3.6<br />
+luke	19	4.0</pre>
+
+<li>Running Pig Statements</li>
+
+local mode:<br />
+<pre> bin/pig -x local</pre>
+Load the student.txt into the “raw” bag as an array of records with the fields name, age, and gpa<br />
+<pre>grunt&gt;load './student.txt' as (name:chararray, age:int, gpa:float);</pre>
+Foreach takes a set of expressions and applies them to every record in the data pipeline. The simplest are constants and field references. Here it selects name, and gpa fields to generate new records. 
+<pre>grunt&gt;B = foreach A generate name, gpa;</pre>
+Dump directs the output of your script to your screen..
+<pre>grunt&gt;Dump B;</pre>
+With Foreach, one can also apply standard arithmetic operators for fields that are integers and floating point numbers. Following statemment adds 0.1 to the gpa of each student.
+<pre>grunt&gt;D = foreach B generate gpa + 0.1;</pre>
+Stores or saves results to the file system
+<pre>grunt&gt;Store "./output.txt"
+</pre>
+     </ol>
+
+</div>
+<h2><a name="wordcount">5. Pig Word Count</a></h2>
+<div>
+      <p align="justify">We show an example of classic word count application using Pig Latin.</p>
+      <ol>
+	    <li><a href="pig-wordcount-7-26.tar" title="pig word count">Pig Word Count Download Package</a></li> 
+        <li>Pig Word Count Scripts</li> 
+<pre>A = load './input.txt';<br />
+B = foreach A generate flatten(TOKENIZE((chararray)$0)) as word;<br />
+C = group B by word;<br />
+D = foreach C generate COUNT(B), group;<br />
+store D into './wordcount';</pre>
+
+<li>Running Pig Word Count Script</li>
+<pre>
+local mode:<br />
+bin/pig -x local wordcount.pig<br />
+mapreduce mode:<br />
+hadoop dfs -copyFromLocal input.txt input/input.txt<br />
+bin/pig -x mapreduce wordcount.pig</pre>
+<li>Programming Word Count using Pig</li>
+
+
+Here are major steps to develop Pig word count application. <br /><br />
+Loads data from the file system.<br />
+<pre>LOAD 'data' [USING function] [AS schema];<br />
+Sample: <br />
+records = load 'student.txt' as (name:chararray, age:int, gpa:double);</pre>
+Generates data transformations based on columns of data.<br />
+<pre>alias  = FOREACH { gen_blk | nested_gen_blk } [AS schema];
+Sample: <br />
+words = foreach lins generate flatten(TOKENIZE((chararray)$0)) as word;</pre>
+Sometimes we want to eliminate nesting. This can be accomplished via the FLATTEN keyword.
+<pre>words = foreach lines generate flatten(TOKENIZE((chararray)$0)) as word;</pre>
+The GROUP operator groups together tuples that have the same group key (key field). 
+<pre>alias = GROUP alias { ALL | BY expression} [, alias ALL | BY expression …] [USING 'collected'] [PARALLEL n];<br />
+Sample:<br />
+word_groups = group words by word;</pre>
+Use the COUNT function to compute the number of elements in a bag. 
+<pre>COUNT(expression)<br />
+Sample:<br />
+D = foreach C generate COUNT(B), group;<br />
+</pre>
+The above program steps will generate parallel executable tasks which can be distributed across multiple machines in a Hadoop cluster to count the number of words in a text file. 
+     </ol>
+     </div>
+<h2><a name="kmeans">6. Pig Kmeans</a></h2>
+<div>
+      <p align="justify">Using Pig to develop an iterative MapReduce application.</p>
+      <ol>
+        <li><a href="pig-kmeans-7-26.tar" title="kmeans download package">Pig Kmeans Download Package</a>:</li> 
+        <li>Kmeans algorithm:</li> 
+A method of cluster analysis which aims to partition n observations into k clusters in which each observation belongs to the cluster with the nearest mean. It is an iterative process and it converges only if the cluster centroid does not move any further.
+<li>Running Pig K-means scripts</li>
+<pre>export PIG_CLASSPATH=/opt/pig-0.10.0/jython-2.5.0.jar <br />
+local mode<br />
+     bin/pig -x local kmeans.py<br />
+     <br />
+     mapreduce mode<br />
+     hadoop hdfs copyFromLocal ./input.txt input/input.txt<br />
+	 bin/pig -x mapreduce kmeans.py</pre>
+ <li>Programming K-means using Pig</li>
+Embedding Pig within Python: Pig does not support flow control statement: if/else, while loop, for loop, etc. Pig embedding API can leverage all language features provided by Python including control flow. Here are three steps covers typical Pig embedding script<br />
+     We Compile the Pig script outside the loop since we will run the same query every time.
+<pre>P = Pig.compile("""register udf.jar<br />
+                   DEFINE find_centroid FindCentroid('$centroids');<br />
+                   raw = load 'student.txt' as (name:chararray, age:int, gpa:double);<br />
+                """)</pre>
+     Inside the loop, we bind the program with the Python variable; initial centroid.<br />
+<pre>Q = P.bind({'centroids':initial_centroids")
+</pre>
+Then we run Pig script by "runSingle", which invoke the Pig script and waits for its completion. 
+<pre>results = Q.runSingle()</pre>
+      
+
+User Defined Function: Pig provides extensive support for user-defined functions (UDFs) as a way to specify custom processing. Functions can be a part of almost every operator in Pig. The first line of following script provides the location of the jar file that contains the UDF. 
+<pre>P = Pig.compile("""register udf.jar<br />
+         DEFINE find_centroid FindCentroid('$centroids');</pre>
+     </ol>
+</div>
+
+<!-- end content area -->
+	</div>
+</div>
+  </div>
+		</div>
+	</div>
+</div>
+
+
+</body>
+{% endblock main_content%}

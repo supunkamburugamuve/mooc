@@ -29,7 +29,7 @@ course:
   admin_user_emails: ''
 
   # Course title
-
+  title: ''#'CSCI-P434 Distributed Systems'
 
   # Main page blurb. (The '|' at the beginning enables multi-line input.)
   blurb: |
